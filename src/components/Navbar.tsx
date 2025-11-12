@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingBag, ShoppingCart, User, Menu, X, LogOut, Package } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, LogOut, Package } from 'lucide-react';
 import { useUser } from '../contexts/UserContext';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -23,21 +23,19 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg shadow-lg border-b border-emerald-100">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-2xl shadow-lg border-b border-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
+            {/* ✅ Logo Section */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <ShoppingBag className="w-6 h-6 text-white" />
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                  Mustabil
-                </span>
-                <p className="text-xs text-gray-600">Superstore</p>
-              </div>
+              <img
+                src="/main-logo.png"
+                alt="Mustabil Superstore"
+                className="w-36 sm:w-40 md:w-44 object-contain drop-shadow-[0_0_12px_rgba(16,185,129,0.3)] transition-transform group-hover:scale-105"
+              />
             </Link>
 
+            {/* ✅ Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <Link to="/" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
                 Home
@@ -52,6 +50,7 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* ✅ Right Side Actions */}
             <div className="flex items-center gap-4">
               {isAdmin && (
                 <Link
@@ -102,9 +101,10 @@ export default function Navbar() {
                 </button>
               )}
 
+              {/* ✅ Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-3 bg-gray-100 rounded-xl"
+                className="md:hidden p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -112,8 +112,9 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* ✅ Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="md:hidden border-t border-gray-100 bg-white animate-fade-in-down">
             <div className="px-4 py-4 space-y-3">
               <Link
                 to="/"
@@ -173,6 +174,7 @@ export default function Navbar() {
         )}
       </nav>
 
+      {/* ✅ Authentication Modal */}
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
