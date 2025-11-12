@@ -43,7 +43,7 @@ function FuturisticLoader() {
         <img
           src="/full-logo.png"
           alt="Mustabil Superstore"
-          className="w-48 sm:w-64 md:w-72 animate-glow-pulse drop-shadow-[0_0_25px_rgba(16,185,129,0.5)]"
+          className="w-48 sm:w-64 md:w-72 rounded-md animate-glow-pulse drop-shadow-[0_0_25px_rgba(16,185,129,0.5)]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-transparent blur-3xl animate-pulse"></div>
       </div>
