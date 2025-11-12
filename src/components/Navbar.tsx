@@ -28,12 +28,21 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* ✅ Logo Section */}
             <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src="/main-logo.png"
-                alt="Mustabil Superstore"
-                className="w-36 sm:w-40 md:w-44 object-contain drop-shadow-[0_0_12px_rgba(16,185,129,0.3)] transition-transform group-hover:scale-105"
-              />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-white/80 backdrop-blur-md rounded-2xl border border-emerald-100 shadow-[0_4px_20px_rgba(16,185,129,0.15)] hover:shadow-[0_6px_30px_rgba(16,185,129,0.25)] transition-all duration-300 overflow-hidden">
+                <img
+                  src="/main-logo.png"
+                  alt="Mustabil Superstore"
+                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-xl transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="hidden sm:flex flex-col">
+                <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent tracking-tight">
+                  Mustabil
+                </span>
+                <p className="text-xs text-gray-500">Superstore</p>
+              </div>
             </Link>
+
 
             {/* ✅ Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
