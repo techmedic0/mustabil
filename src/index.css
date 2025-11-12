@@ -240,3 +240,23 @@ html {
 .scroll-hidden::-webkit-scrollbar {
   display: none;
 }
+
+
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(16,185,129,0.5)); opacity: 1; }
+  50% { filter: drop-shadow(0 0 30px rgba(16,185,129,0.8)); opacity: 0.8; }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2.5s linear infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
